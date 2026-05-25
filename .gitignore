@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Environment
+.env
+.env.local
+
+# ChromaDB (jangan commit — hasilkan dari script 03)
+backend/chroma_db/
+
+# PDF UU (terlalu besar untuk git)
+backend/data/uu_pdfs/*.pdf
+
+# Node
+node_modules/
+frontend/dist/
+
+# OS
+.DS_Store
+*.log
