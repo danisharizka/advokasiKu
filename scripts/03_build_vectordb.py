@@ -54,7 +54,8 @@ def main():
     for i in range(0, len(chunks), BATCH_SIZE):
         batch = chunks[i:i+BATCH_SIZE]
 
-        ids = [c["id"] for c in batch]
+        # Tambah index global agar ID selalu unik meski nama pasal duplikat di PDF
+        ids = [f"{c['id']}_{i + j}" for j, c in enumerate(batch)]
         texts = [c["text"] for c in batch]
         metadatas = [c["metadata"] for c in batch]
 

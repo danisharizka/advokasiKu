@@ -20,7 +20,7 @@ def build_model(konteks_hukum: str = ""):
         system += f"\n\n{konteks_hukum}"
 
     return genai.GenerativeModel(
-        model_name="gemini-1.5-flash",
+        model_name="models/gemini-2.5-flash",
         system_instruction=system,
         generation_config=genai.GenerationConfig(
             temperature=0.3,

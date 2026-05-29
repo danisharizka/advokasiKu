@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { generateDoc } from "../utils/api"
-import { FileDown, Loader2 } from "lucide-react"
 
 export function DocDownloader({ rawResponse }) {
   const [loading, setLoading] = useState(false)
@@ -11,7 +10,7 @@ export function DocDownloader({ rawResponse }) {
     try {
       await generateDoc(rawResponse)
       setDone(true)
-    } catch (e) {
+    } catch {
       alert("Gagal membuat dokumen. Coba lagi.")
     } finally {
       setLoading(false)
@@ -22,11 +21,19 @@ export function DocDownloader({ rawResponse }) {
     <button
       onClick={handleDownload}
       disabled={loading}
-      className="mt-3 flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-lg
-                 bg-blue-600 hover:bg-blue-700 text-white transition-colors disabled:opacity-60"
+      className={`doc-btn${done ? " done" : ""}`}
     >
-      {loading ? <Loader2 size={16} className="animate-spin" /> : <FileDown size={16} />}
-      {done ? "Diunduh!" : loading ? "Membuat surat..." : "Unduh surat (.docx)"}
+      {loading ? (
+        <>
+          <span style={{display:"inline-block",width:13,height:13,border:"2px solid rgba(255,255,255,.4)",borderTopColor:"white",borderRadius:"50%",animation:"spin .6s linear infinite"}} />
+          Membuat surat...
+        </>
+      ) : done ? (
+        <> ✓ Surat diunduh!</>
+      ) : (
+        <> ↓ Unduh surat resmi (.docx)</>
+      )}
+      <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
     </button>
   )
 }
