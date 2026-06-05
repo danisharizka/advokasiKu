@@ -1,21 +1,17 @@
-# AdvokasiKu — Pendamping Hukum AI
+# AdvokasiKu: Pendamping Hukum AI
 
 Pendamping hukum berbasis AI untuk masyarakat Indonesia. Input bebas dalam bahasa apapun (Jawa, Sunda, Melayu, Indonesia), output: penjelasan hak, pasal relevan, dan generator surat resmi siap download.
 
 ## Tech Stack
-- **AI**: Google Gemini 1.5 Flash (via Google AI Studio)
-- **Backend**: FastAPI + Python, ChromaDB (RAG), Sentence Transformers
-- **Frontend**: React + Vite + Tailwind CSS
+- **AI**: Google Gemini 2.5 Flash (via Google AI Studio)
+- **Backend**: FastAPI + Python
+- **Knowledge Base**: ChromaDB + RAG
+- **Frontend**: React + Vite
 - **Deploy**: Google Cloud Run (backend) + Vercel (frontend)
 
-## API Endpoints
-
-| Method | Endpoint | Deskripsi |
-|--------|----------|-----------|
-| POST | `/api/chat/` | Streaming chat dengan Gemini + RAG |
-| POST | `/api/document/generate` | Generate surat .docx |
-| GET | `/api/lbh/` | Daftar LBH, filter by `?kota=Surabaya` |
-| GET | `/health` | Health check |
+## Links
+- App: https://frontend-eight-nu-48.vercel.app/
+- Backend: https://advokasiku-backend-892423181873.asia-southeast2.run.app
 
 ## Lisensi
 MIT — bebas dipakai dan dikembangkan.
